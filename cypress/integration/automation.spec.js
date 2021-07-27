@@ -1,5 +1,4 @@
 import basePage from "./Pages/basePage";
-// require('dotenv').config({path:__dirname+'/../.env'})
 
 const basepage = new basePage();
 
@@ -39,13 +38,15 @@ describe('Automation Test Eli', () => {
     it('check if there is a free date', () => {
 
         if (cy.get('#mCSB_12_container').should('not.be.visible')) {
-            cy.log('THERE IS NO AVAILBLE APPOINTMENT'); 
+            cy.log('THERE IS NO AVAILABLE APPOINTMENT'); 
         } else {
             // click to book the Exam
             cy.get('#mCSB_12_container button').first().click();
             cy.get('#mCSB_14 button').first().click();
             cy.get('.btn.actionButton.createApp.ng-binding').click();
             // send an email
+            var mailer = require('./../../../myVisitEli/mailer');
+            mailer();
         }
     })
 }); 
