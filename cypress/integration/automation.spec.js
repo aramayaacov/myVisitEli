@@ -1,8 +1,9 @@
 import basePage from "./Pages/basePage";
+// require('dotenv').config({path:__dirname+'/../.env'})
 
 const basepage = new basePage();
-const id = '342594066';
-const phoneNumber = '0586790844';
+
+//const phoneNumber = process.env.PHONE_NUMBER;
 
 describe('Automation Test Eli', () => {
     it('visit and get to the calendar', () => {
@@ -23,9 +24,9 @@ describe('Automation Test Eli', () => {
         cy.get('.font-large').click();
         cy.wait(2000);
         
-        cy.get('#QuestionId').type(id);
+        cy.get('#QuestionId').type(Cypress.env('id'));
         basepage.getBtnClass().click();
-        cy.get('#Pelephone').type(phoneNumber);
+        cy.get('#Pelephone').type(Cypress.env('phone'));
         basepage.getBtnClass().click();
 
         cy.get(':nth-child(7) > .list-item-body').click();
@@ -42,9 +43,11 @@ describe('Automation Test Eli', () => {
         if (cy.get('#mCSB_12_container').should('not.be.visible')) {
             cy.log('THERE IS NO AVAILBLE APPOINTMENT'); 
         } else {
+            // click to book the Exam
             cy.get('#mCSB_12_container button').first().click();
             cy.get('#mCSB_14 button').first().click();
             cy.get('.btn.actionButton.createApp.ng-binding').click();
+            // send an email
         }
     })
 }); 
