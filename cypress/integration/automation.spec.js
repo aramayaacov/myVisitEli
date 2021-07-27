@@ -47,4 +47,4 @@ describe('Automation Test Eli', () => {
             cy.get('.btn.actionButton.createApp.ng-binding').click();
         }
     })
-});
+}); 
