@@ -19,10 +19,6 @@ class basePage {
         return cy.get(elementToCheck).should('be.visible');
     })
 
-    getWithoutAccount = (()=>{
-        return cy.get('.link-big > a');
-    })
-
     getUrlOfWebsite=(() => {
          return 'https://myvisit.com/';
 
