@@ -3,8 +3,6 @@ import basePage from "./Pages/basePage";
 
 const basepage = new basePage();
 
-//const phoneNumber = process.env.PHONE_NUMBER;
-
 describe('Automation Test Eli', () => {
     it('visit and get to the calendar', () => {
         
